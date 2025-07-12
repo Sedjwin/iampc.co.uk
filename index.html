@@ -1,8 +1,285 @@
-<html>
-  <head>
-    <title>Git Home Landing</title>
-  </head>
-<body bgcolour="black">
-  <div>HELLO!!!!</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Advisor | AI & Technology Consultant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #4a9eff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            font-weight: 300;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #4a9eff;
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.2);
+        }
+
+        .card h2 {
+            color: #4a9eff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #c0c0c0;
+            margin-bottom: 1rem;
+        }
+
+        .specialties {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specialties h2 {
+            color: #4a9eff;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #4a9eff;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .tech-item h3 {
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .tech-item p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-section h2 {
+            color: #4a9eff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-section p {
+            color: #c0c0c0;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #4a9eff, #00d4ff);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 158, 255, 0.4);
+        }
+
+        .quote {
+            font-style: italic;
+            color: #a0a0a0;
+            border-left: 3px solid #4a9eff;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        /* Subtle animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .header {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ed Wallace</h1>
+            <p class="subtitle">Bridging Technology & Business | AI Specialist | Your Tech Translator</p>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>Business Technology Consulting</h2>
+                <p>13+ years of experience advising companies on computer systems, electronics, and cutting-edge AI implementation. I translate complex technology into actionable business solutions.</p>
+                <div class="quote">
+                    "Making technology work for you, not against you."
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>AI Translation Services</h2>
+                <p>Specializing as an "AI Negotiator" - I help non-tech-savvy individuals and businesses navigate the AI landscape. From implementation to optimization, I make AI accessible and practical.</p>
+                <div class="quote">
+                    "Your bridge between human needs and artificial intelligence."
+                </div>
+            </div>
+
+            <div class="specialties">
+                <h2>Core Expertise</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <h3>AI Integration</h3>
+                        <p>Custom AI solutions, workflow automation, and intelligent system design for business applications.</p>
+                    </div>
+                    <div class="tech-item">
+                        <h3>Hardware Solutions</h3>
+                        <p>Arduino, Raspberry Pi, microcontrollers, 3D printing, and motor control systems.</p>
+                    </div>
+                    <div class="tech-item">
+                        <h3>System Architecture</h3>
+                        <p>Custom OS development, intuitive interfaces, and user-centric design philosophy.</p>
+                    </div>
+                    <div class="tech-item">
+                        <h3>Technical Translation</h3>
+                        <p>Converting complex technical concepts into clear, actionable guidance for any skill level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Ready to Transform Your Tech Stack?</h2>
+            <p>Whether you're looking to integrate AI into your business or need a technical translator for your next project, I deliver solutions that actually work.</p>
+            <div style="margin: 1.5rem 0; font-size: 1.1rem; color: #4a9eff; font-weight: 600;">
+                📞 Phone: <a href="tel:+447833338299" style="color: #00d4ff; text-decoration: none;">+44 07833 338299</a>
+            </div>
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
+            <div style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 1rem;">
+                "I don't just speak tech—I translate it into human. No extra charge for interpreting your computer's mood swings."
+            </div>
+            <div style="color: #666; font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem;">
+                © 2025 Sedjwin. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Subtle interactive elements
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add your contact form or email link here
+            window.location.href = 'mailto:your-email@domain.com';
+        });
+    </script>
 </body>
 </html>
