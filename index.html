@@ -49,8 +49,8 @@
 
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-bottom: 3rem;
         }
 
@@ -170,16 +170,23 @@
             margin: 1.5rem 0;
         }
 
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .container {
                 padding: 1rem;
             }
@@ -217,6 +224,14 @@
                 <p>Specializing as an "AI Negotiator" - I help non-tech-savvy individuals and businesses navigate the AI landscape. From implementation to optimization, I make AI accessible and practical.</p>
                 <div class="quote">
                     "Your bridge between human needs and artificial intelligence."
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Custom Interface Engineering</h2>
+                <p>Purpose-built hardware solutions that define how humans and systems communicate. From concept to creation—interfaces designed for your unique interaction requirements.</p>
+                <div class="quote">
+                    "The tangible bridge between intention and action."
                 </div>
             </div>
 
