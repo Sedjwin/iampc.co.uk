@@ -89,7 +89,14 @@ h3 { font-size: 1.12rem; line-height: 1.3; letter-spacing: -.018em; font-weight:
 .nav nav a.cta:hover { border-color: var(--accent); color: var(--accent); }
 .theme { appearance: none; background: none; border: 0; color: var(--faint); width: 30px; height: 30px; display: grid; place-items: center; cursor: pointer; transition: color .15s; }
 .theme:hover { color: var(--accent); }
-@media (max-width: 860px) { .nav nav a:not(.cta) { display: none; } }
+.nav nav a.client { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.nav nav a.client svg { width: 14px; height: 14px; flex: none; }
+.nav nav a.client .dot { width: 6px; height: 6px; border-radius: 50%; background: transparent; flex: none; transition: background .3s; }
+.nav nav a.client[data-state="up"] .dot { background: var(--accent); }
+.nav nav a.client[data-state="down"] { color: var(--faint); }
+.nav nav a.client[data-state="down"] .dot { background: var(--line2); }
+@media (max-width: 860px) { .nav nav a:not(.cta):not(.client) { display: none; } }
+@media (max-width: 520px) { .nav nav a.client .txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } .nav nav a.client { padding: 10px 5px; } }
 
 /* hero */
 .hero { position: relative; padding: clamp(72px, 12vw, 160px) 0 clamp(56px, 8vw, 104px); isolation: isolate; }
@@ -230,6 +237,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a href="#work">Work</a>
       <a href="#method">Approach</a>
       <a class="cta" href="#contact">Get in touch</a>
+      <a class="client" id="client-login" href="https://portal.iampc.uk/" title="Client login: your files and support"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.75" y="7" width="10.5" height="7.5" rx="1.75" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.25 7V5.25a2.75 2.75 0 0 1 5.5 0V7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span class="txt">Client login</span><i class="dot" aria-hidden="true"></i></a>
       <button class="theme" id="theme" type="button" aria-label="Switch between dark and light" title="Dark / light">
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg>
       </button>
@@ -504,6 +512,34 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     }
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
   for (var i = 0; i < items.length; i++) io.observe(items[i]);
+})();
+// Client login: the portal runs on our own server, which isn't always on. Load its
+// tiny public "up" image; if it doesn't arrive, point the link at the contact section.
+(function () {
+  var a = document.getElementById('client-login');
+  if (!a) return;
+  var txt = a.querySelector('.txt'), done = false, timer;
+  function set(state) {
+    if (done) return;
+    done = true;
+    clearTimeout(timer);
+    a.setAttribute('data-state', state);
+    if (state === 'down') {
+      a.href = '#contact';
+      a.title = 'The client portal is offline right now. Get in touch instead.';
+      a.setAttribute('aria-label', a.title);
+      if (txt) txt.textContent = 'Portal offline';
+    }
+  }
+  function check() {
+    var img = new Image();
+    img.onload = function () { set('up'); };
+    img.onerror = function () { set('down'); };
+    timer = setTimeout(function () { set('down'); }, 5000);
+    img.src = 'https://portal.iampc.uk/up.svg?t=' + Date.now();
+  }
+  if ('requestIdleCallback' in window) requestIdleCallback(check, { timeout: 2000 });
+  else setTimeout(check, 800);
 })();
 </script>
 </body>
